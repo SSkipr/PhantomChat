@@ -10,7 +10,7 @@ export class DiscordClient {
     const opts = {
       method,
       headers: {
-        'Authorization': `Bearer ${this.token}`,
+        'Authorization': this.token,
         'Content-Type': 'application/json'
       },
       body: body ? JSON.stringify(body) : undefined

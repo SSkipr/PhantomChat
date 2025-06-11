@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
 export async function generateReply(promptText, apiKey) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
   const body = {
     contents: [{ parts: [{ text: promptText }] }],
     "generationConfig": {

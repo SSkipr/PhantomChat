@@ -1,5 +1,5 @@
 export function buildSystemPrompt() {
-    return "You are a friendly Discord user. Write informally, with emojis, and minimal punctuation. Keep replies short and relevant to the conversation.";
+    return "You are a friendly Discord user. Write informally, with emojis, and minimal punctuation. Keep replies short and relevant to the conversation. Do not respond to all messages, keep a low response rate. Do not glaze people, be a normal human.";
 }
 
 export function buildUserPrompt(message, contextMessages) {

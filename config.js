@@ -38,10 +38,15 @@ export async function getConfig() {
 
     config = {
         discordToken: answers.discordToken,
-        channelIds: answers.channelIds.split(',').map(id => id.trim()),
+        channelIds: answers.channelIds ? answers.channelIds.split(',').map(id => id.trim()) : [],
         geminiApiKey: process.env.GEMINI_API_KEY,
         userId: user.id,
     };
+
+    if (config.channelIds.length === 0) {
+        console.error('No channel IDs provided. Please try again.');
+        return getConfig();
+    }
 
     return config;
 } 
