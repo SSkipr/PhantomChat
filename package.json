@@ -1,0 +1,16 @@
+{
+  "name": "phantom-chat",
+  "version": "1.0.0",
+  "description": "A user-side Discord agent using Gemini API.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "inquirer": "^9.2.20",
+    "lowdb": "^7.0.1",
+    "node-fetch": "^3.3.2"
+  }
+} 
