@@ -48,7 +48,7 @@ async function main() {
                     const reply = await generateReply(prompt, config.geminiApiKey);
 
                     if (reply) {
-                        const delaySeconds = getRandomInt(5, 9);
+                        const delaySeconds = getRandomInt(5, 19);
                         console.log(`Waiting ${delaySeconds} seconds before replying...`);
                         await sleep(delaySeconds * 1000);
 
