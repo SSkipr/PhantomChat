@@ -42,18 +42,31 @@ async function main() {
 
                     console.log(`New message from ${message.author.username} in channel ${channelId}: "${message.content}"`);
 
+                    // Start "typing" in the channel
+                    await discordClient.sendTyping(channelId);
+
                     const contextMessages = await discordClient.fetchRecentMessages(channelId, { before: message.id, limit: 5 });
 
-                    const prompt = buildUserPrompt(message, contextMessages?.reverse());
+                    const prompt = buildUserPrompt(message, contextMessages?.reverse(), config.personality);
                     const reply = await generateReply(prompt, config.geminiApiKey);
 
                     if (reply) {
-                        const delaySeconds = getRandomInt(5, 19);
-                        console.log(`Waiting ${delaySeconds} seconds before replying...`);
-                        await sleep(delaySeconds * 1000);
+                        // Dynamic delay based on reply length (words * 200ms, with a 3s base)
+                        const wordCount = reply.split(' ').length;
+                        const dynamicDelayMs = 3000 + (wordCount * 200);
+                        console.log(`Waiting ${dynamicDelayMs / 1000} seconds before replying (dynamic)...`);
+                        await sleep(dynamicDelayMs);
+                        
+                        const shouldReplyToUser = Math.random() <= 0.3;
 
-                        console.log(`Sending reply: "${reply}"`);
-                        await discordClient.sendMessage(channelId, reply, message.id);
+                        if (shouldReplyToUser) {
+                            console.log(`Sending as a direct reply to ${message.author.username}: "${reply}"`);
+                            await discordClient.sendMessage(channelId, reply, message.id);
+                        } else {
+                            console.log(`Sending as a new message in the channel: "${reply}"`);
+                            await discordClient.sendMessage(channelId, reply);
+                        }
+                        
                         await markReplied(channelId, message.id);
                     }
                 }

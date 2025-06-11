@@ -23,6 +23,12 @@ export async function getConfig() {
             name: 'channelIds',
             message: 'Enter comma-separated channel IDs to monitor:',
         },
+        {
+            type: 'input',
+            name: 'personality',
+            message: 'Enter a personality for the bot (e.g., "sarcastic," "overly enthusiastic"). The default/recommended mode is to leave this blank:',
+            default: '',
+        },
     ]);
 
     const discordClient = new DiscordClient(answers.discordToken);
@@ -39,6 +45,7 @@ export async function getConfig() {
     config = {
         discordToken: answers.discordToken,
         channelIds: answers.channelIds ? answers.channelIds.split(',').map(id => id.trim()) : [],
+        personality: answers.personality,
         geminiApiKey: process.env.GEMINI_API_KEY,
         userId: user.id,
     };

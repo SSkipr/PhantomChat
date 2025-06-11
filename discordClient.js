@@ -44,6 +44,10 @@ export class DiscordClient {
     return this.request('GET', `/channels/${channelId}/messages?${qs}`);
   }
 
+  async sendTyping(channelId) {
+      return this.request('POST', `/channels/${channelId}/typing`);
+  }
+
   sendMessage(channelId, content, replyToId) {
     const body = { content };
     if (replyToId) {
