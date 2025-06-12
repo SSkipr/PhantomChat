@@ -29,7 +29,7 @@ This project automates a user account using a **user token**. This is in **direc
     *   `lowdb`: For a simple, local JSON database to store state.
     *   `dotenv`: For managing environment variables.
 
-## Setup and Installation (or just run the [compiled version](https://github.com/SSkipr/PhantomChat/releases))
+## Setup and Installation (or just run the [compiled version w/ Installation Setup Step 3](https://github.com/SSkipr/PhantomChat/releases))
 
 1.  **Clone the repository (just [install](https://github.com/SSkipr/PhantomChat/archive/refs/heads/main.zip) it):**
     ```bash
@@ -47,12 +47,12 @@ This project automates a user account using a **user token**. This is in **direc
     ```bash
     cp .env.example .env
     ```
-    Open the `.env` file and add your [Google Gemini API](https://aistudio.google.com/apikey) key:
+    Open the `.env` file and add your [Google Gemini API](https://aistudio.google.com/apikey) key (which is free):
     ```
     GEMINI_API_KEY=your_gemini_api_key_here
     ```
 
-## How to Run (or just run the [compiled version](https://github.com/SSkipr/PhantomChat/releases))
+## How to Run (or just run the [compiled version w/ Installation Setup Step 3](https://github.com/SSkipr/PhantomChat/releases))
 
 1.  **Start the application from your terminal:**
     ```bash
@@ -66,8 +66,3 @@ This project automates a user account using a **user token**. This is in **direc
     *   You will be asked to provide an optional **personality**.
 
 Once configured, the agent will start monitoring the specified channels and replying to messages.
-
-3.  **Run the executable:**
-    *   After the build is complete, you will find a `dist` folder.
-    *   Copy your `.env` file into this `dist` folder.
-    *   Run the `phantom-chat.exe` file. 
