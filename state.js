@@ -1,8 +1,15 @@
 import { Low } from 'lowdb';
 import { JSONFile } from 'lowdb/node';
+import path from 'path';
 
-const db = new Low(new JSONFile('db.json'), { repliedMessages: {} });
-await db.read();
+const exeDir = path.dirname(process.execPath);
+const dbPath = path.join(exeDir, 'db.json');
+
+const db = new Low(new JSONFile(dbPath), { repliedMessages: {} });
+
+export async function initializeState() {
+    await db.read();
+}
 
 export async function hasReplied(channelId, messageId) {
     await db.read();

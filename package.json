@@ -5,12 +5,21 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "esbuild index.js --bundle --platform=node --outfile=dist/bundle.cjs && pkg dist/bundle.cjs --targets node18-win-x64 -o dist/phantom-chat.exe"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
     "inquirer": "^9.2.20",
     "lowdb": "^7.0.1",
     "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.21.4",
+    "pkg": "^5.8.1"
+  },
+  "pkg": {
+    "assets": [],
+    "outputPath": "dist"
   }
 } 

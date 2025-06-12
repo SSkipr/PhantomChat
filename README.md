@@ -1,4 +1,4 @@
-# PhantomChat
+# PhantomChat v1
 
 An automated Discord chat agent that uses Google's Gemini API to generate and send conversational replies as a user.
 
@@ -11,11 +11,12 @@ This project automates a user account using a **user token**. This is in **direc
 ## Features
 
 *   **AI-Powered Replies:** Leverages the Google Gemini API to generate context-aware, human-like responses.
+*   **Customizable Personality:** Define a custom personality for the bot at startup (e.g., "sarcastic," "overly enthusiastic") to tailor its tone and style.
+*   **Realistic Behavior:**
+    *   **"Typing" Indicator:** The bot will appear to be typing before it sends a message.
+    *   **Dynamic Delay:** The wait time before replying is based on the length of the generated message.
+    *   **Randomized Replies:** The bot will randomly decide whether to send a message as a direct reply to a user or as a new, standalone message in the channel.
 *   **Channel Monitoring:** Actively monitors one or more specified Discord channels for new messages.
-*   **User Emulation:** Posts messages as a regular user, not a bot.
-*   **Configurable Behavior:**
-    *   **Reply Probability:** Configured to only reply to messages a certain percentage of the time to appear more natural.
-    *   **Randomized Delay:** Waits for a random duration before sending a message.
 *   **Stateful Memory:** Remembers which messages it has replied to (using a local `db.json` file) to avoid duplicates, even after restarting.
 
 ## Tech Stack
@@ -28,7 +29,7 @@ This project automates a user account using a **user token**. This is in **direc
     *   `lowdb`: For a simple, local JSON database to store state.
     *   `dotenv`: For managing environment variables.
 
-## Setup and Installation
+## Setup and Installation (or just run the [compiled version](https://github.com/SSkipr/PhantomChat/releases))
 
 1.  **Clone the repository (just [install](https://github.com/SSkipr/PhantomChat/archive/refs/heads/main.zip) it):**
     ```bash
@@ -51,7 +52,7 @@ This project automates a user account using a **user token**. This is in **direc
     GEMINI_API_KEY=your_gemini_api_key_here
     ```
 
-## How to Run
+## How to Run (or just run the [compiled version](https://github.com/SSkipr/PhantomChat/releases))
 
 1.  **Start the application from your terminal:**
     ```bash
@@ -61,6 +62,12 @@ This project automates a user account using a **user token**. This is in **direc
 
 2.  **Follow the prompts:**
     *   You will be asked to enter your **[Discord user token](https://www.youtube.com/watch?v=5SRwnLYdpJs&t=51s)**.
-    *   You will be asked to enter a comma-separated list of **Discord channel IDs** you want the agent to monitor.
+    *   You will be asked for a comma-separated list of **Discord channel IDs** to monitor.
+    *   You will be asked to provide an optional **personality**.
 
-Once configured, the agent will start monitoring the specified channels and replying to messages based on its configuration. 
+Once configured, the agent will start monitoring the specified channels and replying to messages.
+
+3.  **Run the executable:**
+    *   After the build is complete, you will find a `dist` folder.
+    *   Copy your `.env` file into this `dist` folder.
+    *   Run the `phantom-chat.exe` file. 

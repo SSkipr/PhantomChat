@@ -1,8 +1,11 @@
 import dotenv from 'dotenv';
 import inquirer from 'inquirer';
+import path from 'path';
 import { DiscordClient } from './discordClient.js';
 
-dotenv.config();
+const exeDir = path.dirname(process.execPath);
+
+dotenv.config({ path: path.join(exeDir, '.env') });
 
 let config = null;
 

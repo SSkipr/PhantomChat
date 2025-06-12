@@ -1,6 +1,6 @@
 import { getConfig } from './config.js';
 import { DiscordClient } from './discordClient.js';
-import { hasReplied, markReplied } from './state.js';
+import { hasReplied, markReplied, initializeState } from './state.js';
 import { generateReply } from './aiClient.js';
 import { buildUserPrompt } from './promptBuilder.js';
 
@@ -16,6 +16,9 @@ function getRandomInt(min, max) {
 
 async function main() {
     console.log("Starting PhantomChat...");
+    
+    await initializeState();
+
     const config = await getConfig();
     const discordClient = new DiscordClient(config.discordToken);
 
@@ -42,7 +45,6 @@ async function main() {
 
                     console.log(`New message from ${message.author.username} in channel ${channelId}: "${message.content}"`);
 
-                    // Start "typing" in the channel
                     await discordClient.sendTyping(channelId);
 
                     const contextMessages = await discordClient.fetchRecentMessages(channelId, { before: message.id, limit: 5 });
@@ -51,7 +53,6 @@ async function main() {
                     const reply = await generateReply(prompt, config.geminiApiKey);
 
                     if (reply) {
-                        // Dynamic delay based on reply length (words * 200ms, with a 3s base)
                         const wordCount = reply.split(' ').length;
                         const dynamicDelayMs = 3000 + (wordCount * 200);
                         console.log(`Waiting ${dynamicDelayMs / 1000} seconds before replying (dynamic)...`);
