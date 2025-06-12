@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "build": "esbuild index.js --bundle --platform=node --outfile=dist/bundle.cjs && pkg dist/bundle.cjs --targets node18-win-x64 -o dist/phantom-chat.exe"
+    "build": "node build.js"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
@@ -16,7 +16,8 @@
   },
   "devDependencies": {
     "esbuild": "^0.21.4",
-    "pkg": "^5.8.1"
+    "pkg": "^5.8.1",
+    "rcedit": "^3.0.1"
   },
   "pkg": {
     "assets": [],
