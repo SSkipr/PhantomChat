@@ -1,6 +1,9 @@
-# PhantomChat v1
+<h1 align="center"><img src="https://github.com/user-attachments/assets/24dee7a7-24b0-42ca-88e2-383b8588899c" width="25" height="25" alt="AeroHelperLogo" /> PhantomChat v1</h1>
+<p align="center"><strong>AFK-Presence AI for Discord Servers</strong></p>
 
-An automated Discord chat agent that uses Google's Gemini API to generate and send conversational replies as a user.
+<p align="center">
+  Respond to messages with natural, personalized AI conversations while you're away.
+</p>
 
 ---
 
@@ -8,7 +11,7 @@ An automated Discord chat agent that uses Google's Gemini API to generate and se
 
 This project automates a user account using a **user token**. This is in **direct violation of Discord's Terms of Service** and can result in your account being disabled. Use this software at your own risk. For a TOS-compliant alternative, consider building a Discord bot using an official bot token and the Discord API. This is intended as Educational Purposes ONLY!
 
-## Features
+## ℹ️ Features
 
 *   **AI-Powered Replies:** Leverages the Google Gemini API to generate context-aware, human-like responses.
 *   **Customizable Personality:** Define a custom personality for the bot at startup (e.g., "sarcastic," "overly enthusiastic") to tailor its tone and style.
@@ -19,7 +22,7 @@ This project automates a user account using a **user token**. This is in **direc
 *   **Channel Monitoring:** Actively monitors one or more specified Discord channels for new messages.
 *   **Stateful Memory:** Remembers which messages it has replied to (using a local `db.json` file) to avoid duplicates, even after restarting.
 
-## Tech Stack
+## ⚙️ Tech Stack
 
 *   **Runtime:** Node.js (v18+)
 *   **API:** Google Gemini API
@@ -29,7 +32,7 @@ This project automates a user account using a **user token**. This is in **direc
     *   `lowdb`: For a simple, local JSON database to store state.
     *   `dotenv`: For managing environment variables.
 
-## Setup and Installation (or just run the [compiled version w/ Installation Setup Step 3](https://github.com/SSkipr/PhantomChat/releases))
+## 👉 Setup and Installation (or just run the [compiled version w/ Installation Setup Step 3](https://github.com/SSkipr/PhantomChat/releases))
 
 1.  **Clone the repository (just [install](https://github.com/SSkipr/PhantomChat/archive/refs/heads/main.zip) it):**
     ```bash
@@ -52,7 +55,7 @@ This project automates a user account using a **user token**. This is in **direc
     GEMINI_API_KEY=your_gemini_api_key_here
     ```
 
-## How to Run (or just run the [compiled version w/ Installation Setup Step 3](https://github.com/SSkipr/PhantomChat/releases))
+## 🟢 How to Run (or just run the [compiled version w/ Installation Setup Step 3](https://github.com/SSkipr/PhantomChat/releases))
 
 1.  **Start the application from your terminal:**
     ```bash
@@ -66,3 +69,13 @@ This project automates a user account using a **user token**. This is in **direc
     *   You will be asked to provide an optional **personality**.
 
 Once configured, the agent will start monitoring the specified channels and replying to messages.
+
+---
+
+## 🗺️ Roadmap
+- [x] Base AI agent framework
+- [x] Dynamic persona training
+- [x] Message delay mimicry
+- [ ] Status-based activation
+- [ ] Auto-start on PC boot
+- [ ] + more! Suggest anything else
